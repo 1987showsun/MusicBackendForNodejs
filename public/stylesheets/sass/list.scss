@@ -1,0 +1,455 @@
+ul.list{
+  width: 100%;
+  float: left;
+  >li{
+    float: left;
+  }
+  &.album{
+    >li{
+      display: inline-block;
+      img{
+        width: 100%;
+      }
+      >figure{
+        width: 100%;
+        position: relative;
+        span.img{
+          width: 100%;
+          display: grid;
+          position: relative;
+          >span.number{
+            width   : 25%;
+            height  : 25%;
+            position: absolute;
+            bottom  : 0px;
+            right   : 0px;
+            background-image:url(../images/bg/bg1.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            color      : #fff;
+            font-size  : 1.3em;
+            display    : grid;
+            text-align : right;
+            align-items: flex-end;
+            padding    : 0px 2% 0px 0px;
+            font-style : oblique;
+          }
+        }
+        >figcaption{
+          float: left;
+          color: #fff;
+          overflow: hidden;
+          h2,h3{
+            width: 120px;
+            white-space:nowrap;
+          	text-overflow:ellipsis;
+          	-o-text-overflow:ellipsis;
+          	overflow:hidden;
+          }
+          h2{
+            margin-bottom: 5px;
+          }
+          h3{
+            color: #777;
+          }
+        }
+      }
+    }
+    &.display4k{
+      >li{
+        width: 8.3333%;
+        padding: 5px;
+      }
+    }
+    &.pc{
+      >li{
+        width: 16.666%;
+        padding-right : 15px;
+        padding-bottom: 15px;
+        margin-bottom: 10px;
+        &:nth-child(6n+1){
+          clear: both;
+          padding-right: 15px;
+        }
+        >figure{
+          >figcaption{
+            padding: 3px;
+            h2{
+              font-size: 0.9em;
+              font-weight: lighter;
+            }
+            h3{
+              font-size: 0.6em;
+              font-weight: lighter;
+            }
+          }
+        }
+      }
+    }
+    &.pad{
+      >li{
+        width: 25%;
+        padding: 5px;
+        margin-bottom: 20px;
+        &:nth-child(4n+1){
+          clear: both;
+        }
+        >figure{
+          >figcaption{
+            font-size: 0.8em;
+            padding: 3px;
+            h2{
+              font-size: 0.9em;
+            }
+            h3{
+              font-size: 0.6em;
+            }
+          }
+        }
+      }
+    }
+    &.min{
+      >li{
+        width: 25%;
+        padding: 7px;
+        margin-bottom: 20px;
+        &:nth-child(4n+1){
+          clear: both;
+        }
+        >figure{
+          >figcaption{
+            font-size: 0.8em;
+            padding: 3px;
+            h2{
+              font-size: 0.9em;
+            }
+            h3{
+              font-size: 0.6em;
+            }
+          }
+        }
+      }
+    }
+
+    &.mobile{
+      >li{
+        width: 33.333%;
+        padding: 4px;
+        margin-bottom: 10px;
+        &:nth-child(3n+1){
+          clear: both;
+        }
+        >figure{
+          >figcaption{
+            font-size: 0.8em;
+            padding: 3px;
+            h2{
+              font-size: 0.9em;
+            }
+            h3{
+              font-size: 0.6em;
+            }
+          }
+        }
+      }
+    }
+    &.fontBottom{
+      figcaption{
+        padding-top: 5px;
+      }
+    }
+
+    &.fontTop{
+      figcaption{
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+      }
+    }
+  }
+
+  &.playlist{
+    color: #fff;
+    >li{
+      width: 100%;
+      >ul{
+        width: 100%;
+        float: left;
+        padding: 5px 0px;
+        display:flex;
+        flex-direction:row;
+        &:first-child{
+          padding-top: 0px;
+        }
+        &:last-child{
+          padding-top: 0px;
+        }
+        >li{
+          float   : left;
+          display : flex;
+          flex-direction :row;
+          align-items: center;
+          align-self : center;
+          align-content: center;
+          &.number{
+          }
+          &.img{
+            figure{
+              width: 35px;
+              display: grid;
+              img{
+                width: 100%;
+              }
+            }
+          }
+          &.text{
+            width: 65%;
+            display: table-cell;
+          }
+          &.time{
+            width: 15%;
+            font-size: 0.8em;
+            text-align: right;
+          }
+          span{
+            display: grid;
+            &.number{
+              width : 35px;
+              height: 35px;
+              font-size: 1.2em;
+              text-align: center;
+              background-color: $mainColor;
+              align-items: center;
+            }
+            &.text{
+              width: 90%;
+              display: inline-block;
+              align-items: center;
+            }
+            &.songName{
+              font-size: 0.8em;
+              white-space:nowrap;
+            	text-overflow:ellipsis;
+            	-o-text-overflow:ellipsis;
+            	overflow:hidden;
+            }
+            &.singer{
+              font-size: 0.6em;
+              color: #777;
+              white-space:nowrap;
+            	text-overflow:ellipsis;
+            	-o-text-overflow:ellipsis;
+            	overflow:hidden;
+            }
+          }
+        }
+      }
+    }
+    &.display4k{
+      >li{
+        width: 100%;
+        >ul{
+          width: 100%;
+          float: left;
+          padding: 5px 0px;
+          display:flex;
+          flex-direction:row;
+          &:first-child{
+            padding-top: 0px;
+          }
+          &:last-child{
+            padding-top: 0px;
+          }
+          >li{
+            float   : left;
+            display : flex;
+            flex-direction :row;
+            align-items: center;
+            align-self : center;
+            align-content: center;
+            &.number{
+              width: 15%;
+            }
+            &.img{
+              width: 15%;
+              figure{
+                width: 35px;
+                display: grid;
+                img{
+                  width: 100%;
+                }
+              }
+            }
+            &.text{
+              width: 65%;
+              display: table-cell;
+            }
+            &.time{
+              width: 15%;
+              font-size: 0.8em;
+              text-align: right;
+            }
+            span{
+              display: grid;
+              &.number{
+                width : 35px;
+                height: 35px;
+                font-size: 1.2em;
+                text-align: center;
+                background-color: $mainColor;
+                align-items: center;
+              }
+              &.text{
+                width: 90%;
+                display: inline-block;
+                align-items: center;
+              }
+              &.songName{
+                font-size: 0.8em;
+                white-space:nowrap;
+              	text-overflow:ellipsis;
+              	-o-text-overflow:ellipsis;
+              	overflow:hidden;
+              }
+              &.singer{
+                font-size: 0.6em;
+                color: #777;
+                white-space:nowrap;
+              	text-overflow:ellipsis;
+              	-o-text-overflow:ellipsis;
+              	overflow:hidden;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.pc{}
+    &.pad{}
+    &.min{}
+    &.mobile{
+      >li{
+        width: 100%;
+        >ul{
+          width: 100%;
+          float: left;
+          padding: 5px 0px;
+          display:flex;
+          flex-direction:row;
+          &:first-child{
+            padding-top: 0px;
+          }
+          &:last-child{
+            padding-top: 0px;
+          }
+          >li{
+            float   : left;
+            display : flex;
+            flex-direction :row;
+            align-items: center;
+            align-self : center;
+            align-content: center;
+            &.number{
+              width: 14%;
+            }
+            &.img{
+              width: 14%;
+              figure{
+                width: 35px;
+                display: grid;
+                img{
+                  width: 100%;
+                }
+              }
+            }
+            &.text{
+              width: 65%;
+              display: table-cell;
+            }
+            &.time{
+              width: 15%;
+              font-size: 0.8em;
+              text-align: right;
+            }
+            span{
+              display: grid;
+              &.number{
+                width : 35px;
+                height: 35px;
+                font-size: 1.2em;
+                text-align: center;
+                background-color: $mainColor;
+                align-items: center;
+              }
+              &.text{
+                width: 90%;
+                display: inline-block;
+                align-items: center;
+              }
+              &.songName{
+                font-size: 0.8em;
+                white-space:nowrap;
+              	text-overflow:ellipsis;
+              	-o-text-overflow:ellipsis;
+              	overflow:hidden;
+              }
+              &.singer{
+                font-size: 0.6em;
+                color: #777;
+                white-space:nowrap;
+              	text-overflow:ellipsis;
+              	-o-text-overflow:ellipsis;
+              	overflow:hidden;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.images{
+    >li{
+      width: 25%;
+      padding: 5px;
+      a{
+        width: 100%;
+        float: left;
+        figure{
+          width: 100%;
+          float: left;
+          img{
+            width: 100%;
+          }
+        }
+      }
+    }
+    &.display4k{
+
+    }
+    &.pc{}
+    &.pad{}
+    &.min{}
+    &.mobile{
+      >li{
+        width: 50%;
+        padding: 1px 2px 1px 2px;
+        &:nth-child(1){
+          width: 100%;
+        }
+        a{
+          width: 100%;
+          float: left;
+          figure{
+            width: 100%;
+            float: left;
+            img{
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

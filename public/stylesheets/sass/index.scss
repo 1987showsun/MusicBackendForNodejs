@@ -1,0 +1,386 @@
+@import 'share.scss';
+@import 'list.scss';
+@import 'slide.scss';
+@import 'footer.scss';
+
+body{
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 100%;
+  min-height: 100vh;
+  background-color: #111;
+  background-image: url(../images/bg/body.png);
+  background-position: center;
+  #wrapper{
+    width: 100vw;
+    min-height: 100vh;
+    float: left;
+    overflow-x: hidden;
+    #mainKv{
+      >.in{
+        width: 100%;
+        margin: auto;
+      }
+    }
+    >.content{
+      width    : 100%;
+      margin   : auto;
+      .title{
+        width: 100%;
+        >span.text{
+          color: $mainColor;
+        }
+      }
+      >.in{
+        width     : 100%;
+        margin    : auto;
+        >.blockTitle{
+          width   : 100%;
+          float   : left;
+          display :flex;
+          flex-direction:row;
+          .name{
+            color: #f36;
+            align-items:center;
+            vertical-align: middle;
+            display: flex;
+          }
+        }
+        .block{
+          &.content{
+            &.left{
+              float: left;
+            }
+            &.right{
+              float: right;
+              .member{
+                float: left;
+                &.status{
+                  width: 100%;
+                }
+              }
+            }
+            &.clear{
+              clear: both;
+            }
+          }
+        }
+        .con{
+          width: 100%;
+        }
+        .action{
+          width: 100%;
+          text-align: center;
+          a{
+            display: inline-block;
+            border : 1px solid #666;
+            color  : #777;
+            text-decoration: none;
+          }
+        }
+      }
+      &.general{
+        >.in{
+          display: flex;
+          max-width: $generalInWidth;
+        }
+      }
+    }
+
+    &.pc{
+      >.content{
+        padding : 40px 0px 100px 0px;
+        .title{
+          margin-bottom: 5px;
+          >span.text{
+            font-size: 1.2em;
+          }
+        }
+        >.in{
+          >.blockTitle{
+            height  : 35px;
+            .name{
+              font-size: 1.1em;
+            }
+          }
+          .block{
+            &.content{
+              &.left{
+                max-width: 80%;
+                padding-right: 10px;
+                display: flex;
+                flex-wrap: wrap;
+              }
+              &.right{
+                width: 20%;
+                padding-left: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                .member{
+                  float: left;
+                  &.status{
+                    width: 100%;
+                  }
+                }
+              }
+              &.clear{
+                clear: both;
+              }
+            }
+          }
+          .con{
+            width: 100%;
+          }
+          .action{
+            width: 100%;
+            text-align: center;
+            a{
+              font-size: 0.8em;
+              &.more{
+                width: 130px;
+                padding: 5px 10px;
+              }
+            }
+          }
+        }
+        &.flex{
+          >.in{
+            display: flex;
+            flex-wrap: wrap;
+          }
+        }
+        &.general{
+          padding: 35px 0px;
+          >.in{
+            max-width: $generalInWidth;
+          }
+        }
+      }
+    }
+
+    &.pad{
+      >.content{
+        padding : 40px 0px 100px 0px;
+        .title{
+          margin-bottom: 5px;
+          >span.text{
+            font-size: 1.2em;
+          }
+        }
+        >.in{
+          display   : block;
+          flex-wrap : wrap;
+          >.blockTitle{
+            height  : 35px;
+            .name{
+              font-size: 1.1em;
+            }
+          }
+          .block{
+            &.content{
+              &.left{
+                max-width: 65%;
+                padding-right: 10px;
+              }
+              &.right{
+                width: 35%;
+                padding-left: 10px;
+                .member{
+                  float: left;
+                  &.status{
+                    width: 100%;
+                  }
+                }
+              }
+              &.clear{
+                clear: both;
+              }
+            }
+          }
+          .con{
+            width: 100%;
+          }
+          .action{
+            width: 100%;
+            text-align: center;
+            a{
+              font-size: 0.8em;
+              &.more{
+                width: 130px;
+                padding: 5px 10px;
+              }
+            }
+          }
+        }
+        &.flex{
+          >.in{
+            display: flex;
+            flex-wrap: wrap;
+          }
+        }
+        &.general{
+          padding: 35px 0px;
+          >.in{
+            max-width: $generalInWidth;
+          }
+        }
+      }
+    }
+
+    &.min{
+      >.content{
+        padding : 40px 0px 100px 0px;
+        .title{
+          margin-bottom: 5px;
+          >span.text{
+            font-size: 1.2em;
+          }
+        }
+        >.in{
+          display   : block;
+          flex-wrap : wrap;
+          >.blockTitle{
+            height  : 35px;
+            .name{
+              font-size: 1.1em;
+            }
+          }
+          .block{
+            &.content{
+              &.left{
+                max-width: 65%;
+                padding-right: 10px;
+              }
+              &.right{
+                width: 35%;
+                padding-left: 10px;
+                .member{
+                  float: left;
+                  &.status{
+                    width: 100%;
+                  }
+                }
+              }
+              &.clear{
+                clear: both;
+              }
+            }
+          }
+          .con{
+            width: 100%;
+          }
+          .action{
+            width: 100%;
+            text-align: center;
+            a{
+              font-size: 0.8em;
+              &.more{
+                width: 130px;
+                padding: 5px 10px;
+              }
+            }
+          }
+        }
+        &.general{
+          padding: 35px 0px;
+          >.in{
+            max-width: $generalInWidth;
+          }
+        }
+      }
+    }
+
+    &.mobile{
+      >.content{
+        padding : 40px 10px 100px 10px;
+        .title{
+          margin-bottom: 5px;
+          >span.text{
+            font-size: 1.2em;
+          }
+        }
+        >.in{
+          display: flex;
+          flex-wrap: wrap;
+          >.blockTitle{
+            height  : 35px;
+            .name{
+              font-size: 1.1em;
+            }
+          }
+          .block{
+            &.content{
+              margin-bottom: 30px;
+              &:last-child{
+                margin-bottom: 0px;
+              }
+              &.left{
+                max-width: 100%;
+              }
+              &.right{
+                width: 100%;
+                .member{
+                  float: left;
+                  &.status{
+                    width: 100%;
+                  }
+                }
+              }
+              &.clear{
+                clear: both;
+              }
+            }
+          }
+          .con{
+            width: 100%;
+          }
+          .action{
+            width: 100%;
+            text-align: center;
+            a{
+              font-size: 0.8em;
+              &.more{
+                width: 130px;
+                padding: 5px 10px;
+              }
+            }
+          }
+        }
+        &.general{
+          padding: 35px 10px;
+          >.in{
+            max-width: $generalInWidth;
+          }
+        }
+        &.vicNav{
+          padding   : 5px 0px 5px 0px !important;
+        }
+      }
+    }
+  }
+}
+
+.fixed{
+  width  : 420px;
+  height : 235px;
+  background-color: #333;
+  position: fixed;
+  z-index: 100;
+  bottom : 5vw;
+  right  : -420px;
+  opacity: 0;
+  @include transition(all .4s);
+  @include shadow(0px 0px 20px #000);
+  >.close{
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0px;
+    right: -35px;
+    background-color: #fff;
+  }
+  &.video{
+    right  : 10vh;
+    opacity: 1;
+  }
+}
