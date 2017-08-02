@@ -1,3 +1,22 @@
+$(function(){
+  var slideApi = new slide.initial({
+    'actionClassName' : 'mainKv',
+    'speed'           : 500,
+    'navStatus'       : {
+      'switch'        : true,
+      'showSet'       : 'center'
+    },
+    'autoChange'      : {
+      'switch'        : true,
+      'pause'         : 5000,
+
+    },
+    'direction'       : {
+      'switch'        : true,
+    }
+  });
+})
+
 var _nowShow    = 0,
     _slideArray = [];
 

@@ -1,29 +1,6 @@
-var Test = React.createClass({
-  getInitialState: function() {
-    return {
-      data: []
-    };
-  },
-  componentWillMount: function() {
-    $.getJSON('/json/kv.json',this.getData)
-  },
-
-  getData : function(data){
-    this.setState({ data: data });
-  },
-  render: function() {
-    console.log(this.state.data);
-
-  }
-})
-
-var Kv = React.createClass({
-  render : function(){
-    console.log(this.props.data);
-  }
-})
+var Kv = require('./index/Kv.jsx');
 
 ReactDOM.render(
-  <Test/>,
-   document.getElementById('mainKv')
+  <Kv/>,
+   document.getElementById('wrapper')
 )

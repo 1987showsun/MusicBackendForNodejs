@@ -54,7 +54,8 @@ var Kv = React.createClass({
   }
 })
 
-ReactDOM.render(
+module.exports = Kv;
+/*ReactDOM.render(
   <Kv/>,
    document.getElementById('mainKv')
-)
+)*/
