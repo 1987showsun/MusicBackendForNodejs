@@ -10,11 +10,13 @@ var cookieParser      = require('cookie-parser');
 var bodyParser        = require('body-parser');
 var sassMiddleware    = require('node-sass-middleware');
 var fs                = require("fs");
-//var helmet            = require('helmet');
+var jwt               = require('jsonwebtoken');
 
 var routes            = require('./routes/index');
 var albumlist         = require('./routes/albumlist');
+var songs             = require('./routes/songs');
 var users             = require('./routes/users');
+var member            = require('./routes/member');
 
 var app               = express();
 
@@ -26,6 +28,8 @@ app.all('*', function(req, res, next) {
     if(req.method=="OPTIONS") res.send(200);
     else  next();
 });
+
+process.env.SECRET_KEY = "tokenkey";
 
 //app.use(helmet());
 app.use(logger('dev'));
@@ -50,6 +54,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/albumlist', albumlist);
+app.use('/songs', songs);
+app.use('/member', member);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

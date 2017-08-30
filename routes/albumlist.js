@@ -15,7 +15,7 @@ router.get('/:type', function(req, res, next) {
       max  = req.query.max,
       min  = req.query.min;
 
-  music.collection('albums').find({"type":type}).limit(12).toArray(function(err,data) {
+  music.collection('albums').find({"type":type}).limit(18).toArray(function(err,data) {
     res.json({data:data});
   });
 });
@@ -61,9 +61,10 @@ router.post('/:type', function(req, res, next) {
 
 router.get('/list/:albumId', function(req, res, next) {
   var albumId    = req.params.albumId;
-
   music.collection('songs').find({ "albums_id":albumId }).toArray(function(err,data) {
-    res.json({data:data});
+    music.collection('albums').find({ _id:ObjectId(albumId) }).toArray(function(err,album) {
+      res.json({data:data,album:album});
+    });
   });
 });
 

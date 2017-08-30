@@ -35,7 +35,7 @@ router.get('/newAlbum', function(req, res, next) {
 });
 
 router.get('/ranking', function(req, res, next) {
-  music.collection('albums').find({}).sort({"count":-1}).limit(12).toArray(function(err,data) {
+  music.collection('albums').find({}).sort({"count":-1}).limit(18).toArray(function(err,data) {
     res.json({data:data});
   });
 });
