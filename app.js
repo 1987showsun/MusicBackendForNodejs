@@ -11,14 +11,17 @@ var bodyParser        = require('body-parser');
 var sassMiddleware    = require('node-sass-middleware');
 var fs                = require("fs");
 var jwt               = require('jsonwebtoken');
-
-var routes            = require('./routes/index');
+var index             = require('./routes/index');
 var albumlist         = require('./routes/albumlist');
 var songs             = require('./routes/songs');
 var users             = require('./routes/users');
 var member            = require('./routes/member');
+var artists           = require('./routes/artists');
+var api               = require('./routes/api');
 
 var app               = express();
+var server            = require('http').Server(app);
+var io                = require('socket.io')(server);
 
 app.all('*', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -30,17 +33,14 @@ app.all('*', function(req, res, next) {
 });
 
 process.env.SECRET_KEY = "tokenkey";
-
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 //app.use(helmet());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 //app.disable('x-powered-by');
-
-app.set('views', __dirname + '/views');
-app.set('view engine', 'jsx');
-app.engine('jsx', require('express-react-views').createEngine());
 
 app.use(sassMiddleware({
   src  : path.join(__dirname, 'public/stylesheets/sass'),
@@ -52,10 +52,12 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
 app.use('/albumlist', albumlist);
 app.use('/songs', songs);
 app.use('/member', member);
+app.use('/artist',artists);
+app.use('/api',api);
+app.use('*', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

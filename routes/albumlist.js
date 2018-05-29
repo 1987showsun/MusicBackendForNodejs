@@ -11,11 +11,23 @@ MongoClient.connect( guessbase_url , function(err, data){
 
 /* GET home page. */
 router.get('/:type', function(req, res, next) {
-  var type = req.params.type,
-      max  = req.query.max,
-      min  = req.query.min;
+  var type    = req.params.type,
+      max     = req.query.max,
+      min     = req.query.min,
+      nowpage = req.query.nowpage,
+      sort    = '';
 
-  music.collection('albums').find({"type":type}).limit(18).toArray(function(err,data) {
+  switch(nowpage){
+    case 'albums':
+      sort = "publish_time";
+      break;
+
+    case 'top50':
+      sort = "count";
+      break;
+  }
+
+  music.collection('albums').find({"type":type}).sort({[sort]:-1}).limit(100).toArray(function(err,data) {
     res.json({data:data});
   });
 });
@@ -60,10 +72,24 @@ router.post('/:type', function(req, res, next) {
 });
 
 router.get('/list/:albumId', function(req, res, next) {
-  var albumId    = req.params.albumId;
+  var albumId    = req.params.albumId,
+      songsData  = [];
   music.collection('songs').find({ "albums_id":albumId }).toArray(function(err,data) {
+    data.map(function(item,i){
+      songsData.push({
+        "_id"        : item._id,
+        "albums_id"  : item.albums_id,
+        "artists_id" : item.artists_id,
+        "name"       : item.name,
+        "name_en"    : item.name_en,
+        "time"       : item.time
+      })
+    })
+
     music.collection('albums').find({ _id:ObjectId(albumId) }).toArray(function(err,album) {
-      res.json({data:data,album:album});
+      album[0].count = album[0].count+1;
+      music.collection('albums').update({_id:ObjectId(albumId)},{$set:{"count":album[0].count}})
+      res.json({data:songsData,album:album});
     });
   });
 });
